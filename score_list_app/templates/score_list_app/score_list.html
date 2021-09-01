@@ -1,0 +1,35 @@
+{% extends 'score_list_app/base.html' %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            <h1>Score list</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+        {% if scores %}
+
+            <div class="list-group">
+            <ol class="list-group list-group-numbered">
+                {% for score in scores %}
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                          <div class="fw-bold">{{ score.user }}</div>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">{{ score.score_project1 }}</span>
+                    </li>
+                {% endfor %}
+            </ol>
+            </div>
+        {% else %}
+            <div class="text-center">
+                <h2>There is no no scores!</h2>
+            <br>
+            <a role="button" class="btn btn-primary" href="{% url 'upload_file' %}">Upload a new result</a>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

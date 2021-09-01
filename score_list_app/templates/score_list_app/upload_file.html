@@ -1,0 +1,32 @@
+
+{% extends 'score_list_app/base.html' %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <h2>Upload new results</h2>
+            <p>Upload the .csv file according to sample submission file.</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+
+            {% if Error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ Error }}
+                </div>
+            {% endif %}
+
+            <form method="POST" enctype="multipart/form-data" action="{% url 'upload_file' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary form-control-file">Upload</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
