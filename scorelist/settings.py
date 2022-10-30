@@ -56,7 +56,7 @@ ROOT_URLCONF = 'scorelist.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['www.nziaei.ir', 'nziaei.ir'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
